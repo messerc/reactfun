@@ -14,9 +14,10 @@ export default class Board extends Component {
 
   render() {
     return (
+      <div>
+        <h3>{this.props.name}</h3>
         <div className='row board'>
-          <h3>{this.props.name}</h3>
-            <div className='col-md-4'>
+            <div className='col'>
               <h3>To do</h3>
               {this.props.notes.map((note, i) => {
               return (
@@ -24,13 +25,14 @@ export default class Board extends Component {
               )
               })}
             </div>
-            <div className='col-md-4'>
+            <div className='col'>
               <h3>In progress</h3>
             </div>
-            <div className='col-md-4'>
+            <div className='col'>
               <h3>Complete</h3>
             </div>
         </div>
+      </div>
     )
   }
 }

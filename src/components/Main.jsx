@@ -20,11 +20,9 @@ export default class Main extends Component {
       return <Board key={i} name={board.name} notes={board.notes} />
     })
     return (
-      <div className='container'>
-        <div className='row'>
-          <h1>This is main</h1>
-          {renderBoards}
-        </div>
+      <div className='container-fluid'>
+        <h1>This is main</h1>
+        {renderBoards}
       </div>
     )
   }
