@@ -30,7 +30,7 @@ class Modal extends Component {
 
     return (
       <div className="backdrop"  onClick={this.props.onClose} style={backdropStyle}>
-        <div onClick={(e) => e.stopPropagation()} onKeyDown={this.props.onKeyDown} tabIndex="0" style={modalStyle}>
+        <div onClick={(e) => e.stopPropagation()} style={modalStyle}>
           {this.props.children}
           <div className="footer">
             <button onClick={this.props.onClose}>

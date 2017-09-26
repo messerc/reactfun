@@ -16,14 +16,14 @@ export default class Board extends Component {
     return (
       <div className='row board'>
         <div className="col-12">
-          <div className="clearfix mt-3">
+          <div className="mt-3">
             <h3 className="float-left">{this.props.name}</h3>
             <button className="btn btn-primary ml-3 mb-3 float-right">Add a new note</button>
           </div>
         </div>
         <div className='col-12'>
           <div className='row'>
-            <div className='col-md-4 tasks mx-auto'>
+            <div className='col-md-4 tasks mx-auto border-right'>
               <h3>To do</h3>
               {this.props.notes.map((note, i) => {
               return (
@@ -31,7 +31,7 @@ export default class Board extends Component {
               )
               })}
             </div>
-            <div className='col-md-4 tasks'>
+            <div className='col-md-4 tasks border-right'>
               <h3>In progress</h3>
             </div>
             <div className='col-md-4 tasks'>
