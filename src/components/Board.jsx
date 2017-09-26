@@ -15,9 +15,11 @@ export default class Board extends Component {
   render() {
     return (
       <div className='row board'>
-        <div className='d-flex mt-3 ml-3'>
-            <h3>{this.props.name}</h3>
-            <button className="btn btn-primary ml-3 mb-3">Add a new note</button>
+        <div className="col-12">
+          <div className="clearfix mt-3">
+            <h3 className="float-left">{this.props.name}</h3>
+            <button className="btn btn-primary ml-3 mb-3 float-right">Add a new note</button>
+          </div>
         </div>
         <div className='col-12'>
           <div className='row'>
