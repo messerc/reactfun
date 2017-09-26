@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import Board from './Board'
 import Modal from './Modal'
@@ -29,12 +28,23 @@ export default class Main extends Component {
     }))
   }
 
+  handleKeyDown = event => {
+    if (event.keyCode === 27 && !!this.state.isOpen) {
+      event.preventDefault();
+      this.toggleModal();
+    }
+  }
+  
+  componentDidMount = () => {
+    console.log('sup I mounted')
+  }
+
   render() {
     const renderBoards = this.state.boards.map((board, i) => {
       return <Board key={i} name={board.name} notes={board.notes} />
     })
     return (
-    <div>
+    <div onKeyDown={this.handleKeyDown}>
       <div className='container-fluid main'>
         <div className="d-flex">
           <h1 className="mt-3">This is main</h1>
@@ -42,7 +52,9 @@ export default class Main extends Component {
         </div>
         {renderBoards}
       </div>
-              <Modal show={this.state.isOpen}
+         <Modal show={this.state.isOpen}
+          onKeyDown={this.handleKeyDown}
+          tabIndex="0"
           onClose={this.toggleModal}>
           <p>This be some content niggaface</p>
         </Modal>
