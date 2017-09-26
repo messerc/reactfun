@@ -10,6 +10,9 @@ export default class Main extends Component {
       boards: [
         { name: 'My First Board', 
           notes: [{title: 'first note', status: 'To_do', type: 'task', description: 'this is the first of many tasks that I will be doing' }]
+        },
+        { name: 'My First Board', 
+          notes: [{title: 'first note', status: 'To_do', type: 'task', description: 'this is the first of many tasks that I will be doing' }]
         }
       ]
     }
@@ -20,8 +23,9 @@ export default class Main extends Component {
       return <Board key={i} name={board.name} notes={board.notes} />
     })
     return (
-      <div className='container-fluid'>
+      <div className='container-fluid main'>
         <h1>This is main</h1>
+        <button className="btn btn-primary">Add a new board</button>
         {renderBoards}
       </div>
     )
