@@ -43,10 +43,6 @@ export default class Main extends Component {
     }
   }
   
-  componentDidMount = () => {
-    console.log('sup I mounted')
-  }
-
   render() {
     const renderBoards = this.state.boards.map((board, i) => {
       return <Board key={i} name={board.name} notes={board.notes} />
