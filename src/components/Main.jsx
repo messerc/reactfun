@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 
-import Board from './Board'
-import Modal from './Modal'
-import '../styles/Main.css'
+import Board from './Board';
+import Modal from './Modal';
+import Navbar from './Navbar';
+import '../styles/Main.css';
 
 const dummyData = [
         { name: 'My First Board', 
@@ -29,7 +30,7 @@ export default class Main extends Component {
   }
 
   createBoard = (name) => {
-    dummyData.push({
+    dummyData.unshift({
       name,
       notes: []
     })
@@ -51,20 +52,19 @@ export default class Main extends Component {
       return <Board key={i} name={board.name} notes={board.notes} />
     })
     return (
-    <div className="container-fluid" onKeyDown={this.handleKeyDown}>
-      <div className='container main'>
-        <div className="d-flex">
-          <h1 className="mt-3">This is main</h1>
-          <button className="btn btn-primary ml-3 mt-3" onClick={this.toggleModal}>Add a new board</button>
+    <div>
+      <Navbar onClick={this.toggleModal} />
+      <div className="container-fluid main" onKeyDown={this.handleKeyDown}>
+        <div>
+          {renderBoards}
         </div>
-        {renderBoards}
+          <Modal show={this.state.isOpen}
+            createBoard={this.createBoard}
+            tabIndex="0"
+            onClose={this.toggleModal}>
+            <p>This be some content niggaface</p>
+          </Modal>
       </div>
-         <Modal show={this.state.isOpen}
-          createBoard={this.createBoard}
-          tabIndex="0"
-          onClose={this.toggleModal}>
-          <p>This be some content niggaface</p>
-        </Modal>
     </div>
     )
   }
