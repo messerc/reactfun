@@ -20,12 +20,13 @@ class Modal extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
+    this.props.createBoard(this.state.form.name)
     this.setState({
       form: {
         name: '',
-        desc: '',
       }
     })
+    this.props.onClose();
   } 
   
 
@@ -63,9 +64,8 @@ class Modal extends Component {
           <form onSubmit={this.handleSubmit}>
             <label>
               Board name:
-              <input type="text" value={form.name} onChange={(e) => this.handleChange(e, "name")} />
+              <input className="ml-3" type="text" value={form.name} onChange={(e) => this.handleChange(e, "name")} />
             </label>
-              <textarea value={form.desc} onChange={(e) => this.handleChange(e, "desc")} name="desc" id="" cols="30" rows="10"></textarea>
           </form>
           <div className="footer">
             <button onClick={this.props.onClose}>

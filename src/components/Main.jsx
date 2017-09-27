@@ -28,6 +28,13 @@ export default class Main extends Component {
     }))
   }
 
+  createBoard = (name) => {
+    dummyData.push({
+      name,
+      notes: []
+    })
+  }
+
   handleKeyDown = event => {
     if (event.keyCode === 27 && !!this.state.isOpen) {
       event.preventDefault();
@@ -53,6 +60,7 @@ export default class Main extends Component {
         {renderBoards}
       </div>
          <Modal show={this.state.isOpen}
+          createBoard={this.createBoard}
           tabIndex="0"
           onClose={this.toggleModal}>
           <p>This be some content niggaface</p>
