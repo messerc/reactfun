@@ -2,6 +2,33 @@ import React, { Component } from "react";
 import PropTypes from 'prop-types';
 
 class Modal extends Component {
+  
+  state = {
+    form: {
+      name: '',
+      desc: ''
+    }
+  }
+
+  handleChange = (event, field) => {
+    this.setState({
+      form: {
+        [field]: event.target.value
+      }
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.setState({
+      form: {
+        name: '',
+        desc: '',
+      }
+    })
+  } 
+  
+
   render() {
     if (!this.props.show) {
       return null;
@@ -28,10 +55,18 @@ class Modal extends Component {
       padding: 30
     }
 
+    const { form } = this.state;
+
     return (
       <div className="backdrop"  onClick={this.props.onClose} style={backdropStyle}>
         <div onClick={(e) => e.stopPropagation()} style={modalStyle}>
-          {this.props.children}
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Board name:
+              <input type="text" value={form.name} onChange={(e) => this.handleChange(e, "name")} />
+            </label>
+              <textarea value={form.desc} onChange={(e) => this.handleChange(e, "desc")} name="desc" id="" cols="30" rows="10"></textarea>
+          </form>
           <div className="footer">
             <button onClick={this.props.onClose}>
               x
