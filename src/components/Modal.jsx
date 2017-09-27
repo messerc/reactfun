@@ -28,12 +28,8 @@ class Modal extends Component {
     })
     this.props.onClose();
   } 
-  
 
-  render() {
-    if (!this.props.show) {
-      return null;
-    }
+  renderBoardForm = () => {
 
     // gray background
     const backdropStyle = {
@@ -57,9 +53,8 @@ class Modal extends Component {
     }
 
     const { form } = this.state;
-
-    return (
-      <div className="backdrop"  onClick={this.props.onClose} style={backdropStyle}>
+      return (
+        <div className="backdrop"  onClick={this.props.onClose} style={backdropStyle}>
         <div onClick={(e) => e.stopPropagation()} style={modalStyle}>
           <form onSubmit={this.handleSubmit}>
             <label>
@@ -73,6 +68,19 @@ class Modal extends Component {
             </button>
           </div>
         </div>
+      </div>
+      )
+    }
+  
+
+  render() {
+    if (!this.props.show) {
+      return null;
+    }
+
+    return (
+      <div>
+       {this.renderBoardForm()}
       </div>
     )
   }
