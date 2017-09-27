@@ -4,12 +4,12 @@ import ReactDOM from "react-dom";
 import "../styles/KanbanNote.css";
 
 export const KanbanNote = (props) => {
+  const color = "red";
   return (
-    <div className="card">
+    <div className="card" style={{borderLeft: `3px solid ${color}`}}>
       <div className="card-block">
-        <h4 className="card-title">{props.title}</h4>
-        <h6 className="card-subtitle text-muted">type: {props.type}</h6>
-        <p className="card-text mt-3">{props.description}</p>
+        <p className="card-title">{props.title}</p>
+        <p className="card-text">{props.description}</p>
       </div>
     </div>
   )
