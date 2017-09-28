@@ -27,7 +27,7 @@ export default class Board extends Component {
 							<h6>To do</h6>
               <hr />
 								<div className="col tasks p-0">
-									{this.props.notes.map((note, i) => {
+									{this.props.notes.filter(listItem => listItem.status === 'TO_DO').map((note, i) => {
 									return (
 										<KanbanNote key={i} {...note} />
 									)
@@ -38,7 +38,7 @@ export default class Board extends Component {
 							<h6>In progress</h6>
               <hr />
 								<div className="col tasks p-0">
-									{this.props.notes.map((note, i) => {
+									{this.props.notes.filter(listItem => listItem.status === 'IN_PROGRESS').map((note, i) => {
 									return (
 										<KanbanNote key={i} {...note} />
 									)
@@ -49,7 +49,7 @@ export default class Board extends Component {
 							<h6>Complete</h6>
               <hr />
 								<div className="col tasks p-0">
-									{this.props.notes.map((note, i) => {
+									{this.props.notes.filter(listItem => listItem.status === 'COMPLETED').map((note, i) => {
 									return (
 										<KanbanNote key={i} {...note} />
 									)

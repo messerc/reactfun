@@ -24,7 +24,11 @@ class KanbanNote extends Component {
     const color = 'red';
     const { connectDragSource, isDragging, title, description } = this.props;
     return connectDragSource(
-      <div className='card' style={{ borderLeft: `3px solid ${color}` }}>
+      <div className='card' style={{ 
+        borderLeft: `3px solid ${color}`,
+        opacity: isDragging ? 0.5 : 1,
+        cursor: 'move' 
+      }}>
         <div className='card-block'>
           <p className='card-title mb-0 text-muted'>{title}</p>
           <p className='card-text'>{description}</p>
