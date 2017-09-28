@@ -7,7 +7,17 @@ import '../styles/KanbanNote.css';
 
 const noteSource = {
   beginDrag(props) {
-    return {};
+    return { props };
+  },
+
+  endDrag(props, monitor) {
+    const item = monitor.getItem();
+    const dropResult = monitor.getDropResult();
+    let alertMessage = '';
+    if (dropResult) {
+      alertMessage = `You dropped ${JSON.stringify(item)} into ${JSON.stringify(dropResult)}`
+    }
+    window.alert(alertMessage);
   }
 }
 
