@@ -27,7 +27,18 @@ class Column extends Component {
     super(props);
 
     this.state = {
-      notes: this.props.notes
+      notes: [
+        {
+          id: 0,
+          title: 'Test note',
+          description: 'I am restructuring this application motherfucker'
+        },
+        {
+          id: 1,
+          title: 'Test note 2',
+          description: 'Yes, its happening ya dum cunt'
+        }
+      ]
     }
 
   }
@@ -35,15 +46,13 @@ class Column extends Component {
   moveCard = (dragIndex, hoverIndex) => {
     const { notes } = this.state;
     const dragCard = notes[dragIndex];
-
-    this.setState(update(this.state, {
-      notes: {
-        $splice: [
-          [dragIndex, 1],
-          [hoverIndex, 0, dragCard]
-        ]
-      }
-    }));
+    let copy = notes.slice();
+    copy.splice(dragIndex, 1);
+    copy.splice(hoverIndex, 0, dragCard);
+    console.log(copy);
+    this.setState({
+      notes: copy
+    })
   }
 
   render() {

@@ -8,7 +8,7 @@ import '../styles/KanbanNote.css';
 
 const noteSource = {
   beginDrag(props) {
-    return { props };
+    return { ...props };
   },
 
   endDrag(props, monitor) {
@@ -95,6 +95,4 @@ class KanbanNote extends Component {
 
 }
 
-const draggableKanban = DragSource(ItemTypes.NOTE, noteSource, collect)(KanbanNote);
-
-export default DropTarget(ItemTypes.NOTE, cardTarget, drop)(draggableKanban)
+export default DropTarget(ItemTypes.NOTE, cardTarget, drop)(DragSource(ItemTypes.NOTE, noteSource, collect)(KanbanNote))
