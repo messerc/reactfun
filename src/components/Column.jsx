@@ -50,6 +50,7 @@ class Column extends Component {
     const { connectDropTarget, isOver, title } = this.props;
     const { notes } = this.state;
 
+
     let backgroundColor = '#F3F1F1'
 
     if (isOver) {
