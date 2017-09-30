@@ -8,14 +8,15 @@ import Column from './Column';
 
 
 class Board extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
-
+			notes: this.props.notes
 		}
 	}
 
 	render() {
+		const { notes } = this.state;
 		return (
 			<div>
 				<div className='col-12 m-2 p-3'>
@@ -27,29 +28,13 @@ class Board extends Component {
 				<div className='col-12 m-3 p-3 board'>
 					<div className='d-flex flex-wrap justify-content-between mr-3'>
 						<div className='col-sm mr-2 mt-3'>
-							<Column notes={this.props.notes.filter(listItem => listItem.status === 'TO_DO')} />
+							<Column notes={notes.filter(listItem => listItem.status === 'TO_DO')} title="To do" />
 						</div>
 						<div className='col-sm mr-2 mt-3'>
-							<h6>In progress</h6>
-							<hr />
-								<div className='col tasks p-0'>
-									{this.props.notes.filter(listItem => listItem.status === 'IN_PROGRESS').map((note, i) => {
-									return (
-										<KanbanNote key={i} {...note} />
-									)
-									})}
-									</div>
+							<Column notes={notes.filter(listItem => listItem.status === 'IN_PROGRESS')} title="In progress" />
 						</div>
 						<div className='col-sm mr-2 mt-3'>
-							<h6>Complete</h6>
-							<hr />
-								<div className='col tasks p-0'>
-									{this.props.notes.filter(listItem => listItem.status === 'COMPLETED').map((note, i) => {
-									return (
-										<KanbanNote key={i} {...note} />
-									)
-									})}
-									</div>
+							<Column notes={notes.filter(listItem => listItem.status === 'COMPLETED')} title="Completed" />
 						</div>
 					</div>
 				</div>

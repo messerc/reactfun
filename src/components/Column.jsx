@@ -23,10 +23,10 @@ function collect(connect, monitor) {
 
 class Column extends Component {
   render() {
-    const { connectDropTarget, isOver, notes } = this.props
+    const { connectDropTarget, isOver, notes, title } = this.props
     return connectDropTarget(
       <div>
-        <h6>To do</h6>
+        <h6>{title}</h6>
         <hr />
         <div className='col tasks p-0'>
           {notes.map((note, i) => <KanbanNote key={i} {...note} />)}

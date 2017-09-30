@@ -8,14 +8,14 @@ import '../styles/Main.css';
 const dummyData = [
         { name: 'My First Board', 
           notes: [
-            {title: 'first note', status: 'TO_DO', type: 'task', description: 'this is the first of many tasks that I will be doing' },
-            {title: 'second note', status: 'IN_PROGRESS', type: 'task', description: 'another task' },
-            {title: 'take a poop', status: 'IN_PROGRESS', type: 'task', description: 'pretty self-explanatory' },
-            {title: 'groceries', status: 'COMPLETED', type: 'task', description: 'gettin the goodz.' }
+            {title: 'first note', id: 0, status: 'TO_DO', type: 'task', description: 'this is the first of many tasks that I will be doing' },
+            {title: 'second note', id: 1, status: 'IN_PROGRESS', type: 'task', description: 'another task' },
+            {title: 'take a poop', id: 2, status: 'IN_PROGRESS', type: 'task', description: 'pretty self-explanatory' },
+            {title: 'groceries', id: 3, status: 'COMPLETED', type: 'task', description: 'gettin the goodz.' }
           ]
         },
         { name: 'My Second Board', 
-          notes: [{title: 'second note', status: 'In_progress', type: 'bug', description: 'Fix this bug you god damn idiot, fuck.' }]
+          notes: [{title: 'second note', id: 0, status: 'IN_PROGRESS', type: 'bug', description: 'Fix this bug you god damn idiot, fuck.' }]
         }
       ];
 

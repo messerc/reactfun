@@ -15,6 +15,8 @@ const noteSource = {
     const dropResult = monitor.getDropResult();
     let alertMessage = '';
     if (dropResult) {
+      console.log(item)
+      console.log(dropResult) 
       alertMessage = `You dropped ${JSON.stringify(item)} into ${JSON.stringify(dropResult)}`
     }
     window.alert(alertMessage);
