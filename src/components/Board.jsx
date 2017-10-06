@@ -1,22 +1,13 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
 import '../styles/Board.css';
 
-import KanbanNote from './KanbanNote';
 import Column from './Column';
 
 
 class Board extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			notes: this.props.notes
-		}
-	}
 
 	render() {
-		const { notes } = this.state;
 		return (
 			<div>
 				<div className='col-12 m-2 p-3'>

@@ -37,6 +37,7 @@ function drop(connect) {
 
 const cardTarget = {
   hover(props, monitor, component) {
+    console.log(props)
     const dragIndex = monitor.getItem().index;
     const hoverIndex = props.index;
 
@@ -94,5 +95,13 @@ class KanbanNote extends Component {
   }
 
 }
+
+KanbanNote.propTypes = {
+  connectDragSource: PropTypes.func.isRequired,
+  connectDropTarget: PropTypes.func.isRequired,
+  isDragging: PropTypes.bool,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string
+};
 
 export default DropTarget(ItemTypes.NOTE, cardTarget, drop)(DragSource(ItemTypes.NOTE, noteSource, collect)(KanbanNote))

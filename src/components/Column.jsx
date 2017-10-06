@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-import update from 'immutability-helper';
-import PropTypes from 'prop-types';
-import { DropTarget, connectDropTarget } from 'react-dnd';
+import { DropTarget } from 'react-dnd';
 import { ItemTypes } from './Constants';
 
 import KanbanNote from './KanbanNote';
 import '../styles/Column.css';
 
 const boxTarget = {
-	drop(props) {
+	drop(props, monitor, component) {
+    console.log(monitor);
+    console.log(component);
+    console.log(monitor.didDrop());
 		return {
       props
 		};
@@ -49,7 +50,6 @@ class Column extends Component {
     let copy = notes.slice();
     copy.splice(dragIndex, 1);
     copy.splice(hoverIndex, 0, dragCard);
-    console.log(copy);
     this.setState({
       notes: copy
     })
